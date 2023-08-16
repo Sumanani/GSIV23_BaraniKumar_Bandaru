@@ -12,7 +12,7 @@ const App = () => {
         xl: "8",
       }}
     >
-      <VStack alignItems="flex-start">
+      <VStack spacing={8} alignItems="flex-start">
         <NavBar />
         <MovieGrid />
       </VStack>
