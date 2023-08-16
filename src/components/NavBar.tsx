@@ -5,7 +5,7 @@ import SearchInput from "./SearchInput";
 const NavBar = () => {
   return (
     <HStack
-      width="100%"
+      w="100%"
       justify={{
         base: "flex-start",
         lg: "space-between",
