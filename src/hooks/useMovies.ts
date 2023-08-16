@@ -8,6 +8,7 @@ export interface Movie {
   original_title: string;
   poster_path: string;
   release_date: string;
+  runtime: number;
   genres?: {
     id: number;
     name: string;

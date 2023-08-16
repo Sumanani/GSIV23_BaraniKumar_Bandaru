@@ -1,4 +1,4 @@
-import { Center, HStack, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
+import { Center, HStack, SimpleGrid, Spinner } from "@chakra-ui/react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import useMovies from "../hooks/useMovies";
 import MovieCard from "./MovieCard";
