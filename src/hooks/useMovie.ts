@@ -1,6 +1,6 @@
 import apiClient from "../services/apiClient";
 import { useQuery } from "@tanstack/react-query";
-import { Movie, MovieResponse } from "./useMovies";
+import { Movie } from "./useMovies";
 
 const useMovie = (movieId: string) => {
   return useQuery<Movie, Error>({
