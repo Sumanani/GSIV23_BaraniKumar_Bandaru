@@ -1,4 +1,4 @@
-import { HStack, Heading, Text, Box, Stack } from "@chakra-ui/react";
+import { Heading, Text, Box, Stack } from "@chakra-ui/react";
 import RatingBadge from "../components/RatingBadge";
 import { Movie } from "../hooks/useMovies";
 
