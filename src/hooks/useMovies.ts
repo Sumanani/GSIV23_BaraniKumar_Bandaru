@@ -24,8 +24,8 @@ const useMovies = () => {
     apiClient
       .get<MovieResponse>("/movie/upcoming", { signal: controller.signal })
       .then((res) => {
-        setLoading(false);
         setMovies(res.data.results);
+        setLoading(false);
       })
       .catch((err) => {
         setLoading(false);
