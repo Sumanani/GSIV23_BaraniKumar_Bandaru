@@ -18,16 +18,20 @@ interface MovieResponse {
 const useMovies = () => {
   const movieQuery = useMovieStore((s) => s.movieQuery);
   const endpoint = movieQuery.query ? "/search/movie" : "/movie/upcoming";
+
   return useInfiniteQuery<MovieResponse, Error>({
     queryKey: ["movies", movieQuery],
+
     queryFn: ({ pageParam = 1 }) =>
       apiClient
         .get<MovieResponse>(endpoint, {
           params: { ...movieQuery, page: pageParam },
         })
         .then((res) => res.data),
+
     getNextPageParam: (lastPage, allPages) =>
       allPages.length < lastPage.total_pages ? allPages.length + 1 : undefined,
+
     staleTime: 10 * 60 * 1000, //10 mins
   });
 };

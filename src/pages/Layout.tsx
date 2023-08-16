@@ -1,12 +1,8 @@
+import { Outlet } from "react-router-dom";
 import { Box, VStack } from "@chakra-ui/react";
-import NavBar from "./components/NavBar";
-import MovieGrid from "./components/MovieGrid";
+import NavBar from "./../components/NavBar";
 
-export interface MovieQuery {
-  query?: string;
-}
-
-const App = () => {
+const Layout = () => {
   return (
     <Box
       padding={{
@@ -17,10 +13,10 @@ const App = () => {
     >
       <VStack spacing={8} alignItems="flex-start">
         <NavBar />
-        <MovieGrid />
+        <Outlet />
       </VStack>
     </Box>
   );
 };
 
-export default App;
+export default Layout;

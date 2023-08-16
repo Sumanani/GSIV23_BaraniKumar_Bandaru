@@ -14,6 +14,8 @@ const MovieGrid = () => {
       </HStack>
     );
 
+  if (error) throw error;
+
   const fetchedMoviesCount =
     data?.pages.reduce((total, page) => total + page.results.length, 0) || 0;
 
@@ -28,7 +30,6 @@ const MovieGrid = () => {
         </Center>
       }
     >
-      {error && <Text color={"red"}>{error.message}</Text>}
       <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5 }} spacing={6}>
         {data?.pages.map((page, index) => (
           <React.Fragment key={index}>
