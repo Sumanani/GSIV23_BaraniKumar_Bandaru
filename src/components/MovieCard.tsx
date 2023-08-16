@@ -9,12 +9,14 @@ interface Props {
 
 const MovieCard = ({ movie }: Props) => {
   const { overview, backdrop_path } = movie;
+
   const imageUrl = backdrop_path
     ? "https://image.tmdb.org/t/p/w500" + backdrop_path
     : noImage;
-  console.log(imageUrl);
+
   const summary =
     overview.length >= 100 ? overview.slice(0, 100) + "..." : overview;
+
   return (
     <Card
       _hover={{

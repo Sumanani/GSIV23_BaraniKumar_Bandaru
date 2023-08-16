@@ -14,7 +14,6 @@ const App = () => {
 
   return (
     <Box
-      width="100vw"
       padding={{
         base: "4",
         md: "6",
