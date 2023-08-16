@@ -1,4 +1,5 @@
 import { Card, CardBody, HStack, Text, Image, Heading } from "@chakra-ui/react";
+import noImage from "../assets/no-image.png";
 import { Movie } from "../hooks/useMovies";
 import RatingBadge from "./RatingBadge";
 
@@ -7,10 +8,13 @@ interface Props {
 }
 
 const MovieCard = ({ movie }: Props) => {
+  const { overview, backdrop_path } = movie;
+  const imageUrl = backdrop_path
+    ? "https://image.tmdb.org/t/p/w500" + backdrop_path
+    : noImage;
+  console.log(imageUrl);
   const summary =
-    movie.overview.length >= 100
-      ? movie.overview.slice(0, 100) + "..."
-      : movie.overview;
+    overview.length >= 100 ? overview.slice(0, 100) + "..." : overview;
   return (
     <Card
       _hover={{
@@ -20,7 +24,7 @@ const MovieCard = ({ movie }: Props) => {
       borderRadius="10px"
       overflow="hidden"
     >
-      <Image src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} />
+      <Image src={imageUrl} />
       <CardBody>
         <HStack marginY={2} justify="space-between">
           <Heading fontSize="xl">{movie.original_title}</Heading>
