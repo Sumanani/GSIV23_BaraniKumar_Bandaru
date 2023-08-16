@@ -1,12 +1,10 @@
 import { InputGroup, InputLeftElement, Input } from "@chakra-ui/react";
 import { useRef } from "react";
 import { BiSearch } from "react-icons/bi";
+import useMovieStore from "../store";
 
-interface Props {
-  onSearch: (query: string) => void;
-}
-
-const SearchInput = ({ onSearch }: Props) => {
+const SearchInput = () => {
+  const updateSearchQuery = useMovieStore((s) => s.updateSearchQuery);
   const ref = useRef<HTMLInputElement>(null);
   return (
     <form
@@ -14,8 +12,9 @@ const SearchInput = ({ onSearch }: Props) => {
         event.preventDefault();
 
         // setting the movieQuery to empty string to fetch the latest movies
-        if (ref.current && ref.current.value) onSearch(ref.current.value);
-        else onSearch("");
+        if (ref.current && ref.current.value)
+          updateSearchQuery(ref.current.value);
+        else updateSearchQuery("");
       }}
     >
       <InputGroup

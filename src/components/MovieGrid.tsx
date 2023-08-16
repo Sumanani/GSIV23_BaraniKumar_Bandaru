@@ -1,19 +1,18 @@
-import { Center, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
+import { Center, HStack, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import useMovies from "../hooks/useMovies";
 import MovieCard from "./MovieCard";
-import { MovieQuery } from "../App";
 import React from "react";
 
-interface Props {
-  movieQuery: MovieQuery;
-}
+const MovieGrid = () => {
+  const { data, error, isLoading, fetchNextPage, hasNextPage } = useMovies();
 
-const MovieGrid = ({ movieQuery }: Props) => {
-  const { data, error, isLoading, fetchNextPage, hasNextPage } =
-    useMovies(movieQuery);
-
-  if (isLoading) return <Spinner />;
+  if (isLoading)
+    return (
+      <HStack justify="center" w="100%" h="500px">
+        <Spinner />
+      </HStack>
+    );
 
   const fetchedMoviesCount =
     data?.pages.reduce((total, page) => total + page.results.length, 0) || 0;

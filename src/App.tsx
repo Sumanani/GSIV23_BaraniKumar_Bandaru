@@ -8,10 +8,6 @@ export interface MovieQuery {
 }
 
 const App = () => {
-  const [movieQuery, setMovieQuery] = useState({});
-
-  const onSearch = (query: string) => setMovieQuery({ query });
-
   return (
     <Box
       padding={{
@@ -21,8 +17,8 @@ const App = () => {
       }}
     >
       <VStack spacing={8} alignItems="flex-start">
-        <NavBar onSearch={onSearch} />
-        <MovieGrid movieQuery={movieQuery} />
+        <NavBar />
+        <MovieGrid />
       </VStack>
     </Box>
   );
