@@ -17,7 +17,13 @@ const MovieDetailsAttributes = ({ movieDetails }: Props) => {
   } = movieDetails;
 
   const year = release_date.slice(0, 4);
+
   const length = `${Math.floor(runtime / 60).toString()}h ${runtime % 60}m`;
+
+  const genreList = genres?.reduce((accumulator, genre, index) => {
+    const result = index === genres.length - 1 ? genre.name : `${genre.name}, `;
+    return accumulator + result;
+  }, "");
 
   return (
     <>
@@ -45,28 +51,19 @@ const MovieDetailsAttributes = ({ movieDetails }: Props) => {
       </Stack>
       <Box paddingX={3}>
         <Text
+          color={"gray.500"}
           marginTop={5}
           marginBottom={4}
           fontSize="lg"
         >{`${year} | ${length}`}</Text>
-        <HStack>
-          <Text fontSize="lg">Genre: </Text>
-          {genres?.map((genre, index) => {
-            return (
-              <Text
-                fontSize="lg"
-                color={"gray.500"}
-                fontWeight="bold"
-                key={genre.id}
-              >
-                {index === genres.length - 1
-                  ? `${genre.name}`
-                  : `${genre.name},`}
-              </Text>
-            );
-          })}
-        </HStack>
-        <Text marginY={4} fontSize="lg">{`Description: ${overview}`}</Text>
+
+        <Text fontSize="lg" color={"gray.500"}>{`Genres: ${genreList} `}</Text>
+
+        <Text
+          marginY={4}
+          color={"gray.600"}
+          fontSize="lg"
+        >{`Description: ${overview}`}</Text>
       </Box>
     </>
   );
