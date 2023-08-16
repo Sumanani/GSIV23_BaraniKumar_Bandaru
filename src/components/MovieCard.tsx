@@ -1,7 +1,6 @@
 import { Card, CardBody, HStack, Text, Image, Heading } from "@chakra-ui/react";
 import { Movie } from "../hooks/useMovies";
 import RatingBadge from "./RatingBadge";
-import { easeIn, transform } from "framer-motion";
 
 interface Props {
   movie: Movie;

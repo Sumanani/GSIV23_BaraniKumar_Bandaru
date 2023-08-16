@@ -1,13 +1,12 @@
-import {
-  HStack,
-  IconButton,
-  Input,
-  InputGroup,
-  InputLeftElement,
-} from "@chakra-ui/react";
-import { BiSolidHome, BiSearch } from "react-icons/bi";
+import { HStack, IconButton } from "@chakra-ui/react";
+import { BiSolidHome } from "react-icons/bi";
+import SearchInput from "./SearchInput";
 
-const NavBar = () => {
+interface Props {
+  onSearch: (query: string) => void;
+}
+
+const NavBar = ({ onSearch }: Props) => {
   return (
     <HStack
       width="100%"
@@ -16,17 +15,7 @@ const NavBar = () => {
         lg: "space-between",
       }}
     >
-      <InputGroup
-        width={{
-          base: "100%",
-          lg: "60%",
-        }}
-      >
-        <InputLeftElement>
-          <BiSearch />
-        </InputLeftElement>
-        <Input placeholder="Search Movies...." />
-      </InputGroup>
+      <SearchInput onSearch={onSearch} />
       <IconButton aria-label="Home" icon={<BiSolidHome />} />
     </HStack>
   );
