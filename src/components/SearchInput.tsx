@@ -17,6 +17,7 @@ const SearchInput = () => {
         // setting the movieQuery to empty string to fetch the latest movies
         if (ref.current) {
           updateSearchQuery(ref.current.value);
+          ref.current.value = "";
           navigate("/");
         } else updateSearchQuery("");
       }}

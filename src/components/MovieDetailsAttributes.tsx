@@ -31,7 +31,14 @@ const MovieDetailsAttributes = ({ movieDetails }: Props) => {
           md: "flex-end",
         }}
       >
-        <Heading size="2xl">{original_title}</Heading>
+        <Heading
+          size={{
+            base: "xl",
+            lg: "2xl",
+          }}
+        >
+          {original_title}
+        </Heading>
         <Box marginLeft={2} paddingBottom="3px">
           <RatingBadge vote_average={vote_average} />
         </Box>
