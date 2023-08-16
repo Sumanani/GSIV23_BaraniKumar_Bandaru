@@ -13,13 +13,13 @@ const NavBar = () => {
       width="100%"
       justify={{
         base: "flex-start",
-        xl: "space-between",
+        lg: "space-between",
       }}
     >
       <InputGroup
         width={{
           base: "100%",
-          xl: "60%",
+          lg: "60%",
         }}
       >
         <InputLeftElement>

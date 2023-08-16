@@ -1,5 +1,6 @@
 import { Box, VStack } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
+import MovieGrid from "./components/MovieGrid";
 
 const App = () => {
   return (
@@ -13,9 +14,7 @@ const App = () => {
     >
       <VStack alignItems="flex-start">
         <NavBar />
-        <Box width="100%" backgroundColor="blue">
-          Main
-        </Box>
+        <MovieGrid />
       </VStack>
     </Box>
   );
