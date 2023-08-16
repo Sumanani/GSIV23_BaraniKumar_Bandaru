@@ -1,27 +1,9 @@
-import { useEffect, useState } from "react";
-import { Text } from "@chakra-ui/react";
-import apiClient from "../services/apiClient";
-
-interface Movie {
-  backdrop_path: string;
-  id: number;
-  original_title: string;
-  vote_average: number;
-}
-
-interface MovieResponse {
-  results: Movie[];
-}
+import { Spinner, Text } from "@chakra-ui/react";
+import useMovies from "../hooks/useMovies";
 
 const MovieGrid = () => {
-  const [movies, setMovies] = useState<Movie[]>([]);
-  const [error, setError] = useState("");
-  useEffect(() => {
-    apiClient
-      .get<MovieResponse>("/movie/upcoming")
-      .then((res) => setMovies(res.data.results))
-      .catch((err) => setError(err.message));
-  });
+  const { movies, error, isLoading } = useMovies();
+  if (isLoading) return <Spinner />;
   return (
     <>
       {error && <Text color={"red"}>{error}</Text>}
