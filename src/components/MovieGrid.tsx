@@ -1,5 +1,6 @@
-import { Spinner, Text } from "@chakra-ui/react";
+import { SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 import useMovies from "../hooks/useMovies";
+import MovieCard from "./MovieCard";
 
 const MovieGrid = () => {
   const { movies, error, isLoading } = useMovies();
@@ -7,11 +8,11 @@ const MovieGrid = () => {
   return (
     <>
       {error && <Text color={"red"}>{error}</Text>}
-      <ul>
+      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5 }} spacing={6}>
         {movies.map((m) => (
-          <li key={m.id}>{m.original_title}</li>
+          <MovieCard key={m.id} movie={m} />
         ))}
-      </ul>
+      </SimpleGrid>
     </>
   );
 };
